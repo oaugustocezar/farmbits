@@ -27,7 +27,6 @@ public class Provider implements Serializable {
     private String providerName;
     @Column(name = "email")
     private String email;
-    @ManyToMany(mappedBy = "providers")
-    private List <Product> products;
+
 
 }

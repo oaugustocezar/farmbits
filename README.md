@@ -28,6 +28,16 @@ Ex:
     ]
 }
 
+
+ou fazer um put adicionando mais fornecedores em  "/api/v1/product/providers" passando o id no parametro da url e no corpo o fornecedor
+
+provider{
+ "idProvider" : "1"
+
+}
+
+
+
 Para alterar categoria do produto ir no path "/api/v1/product",passar como parametro o id do produto que deseja alterar
 e passar o objeto com o id da categoria já existente. 
 
@@ -40,10 +50,10 @@ Ex: /api/v1/product?id=1
 }
 
 
-Listar produtos por categoria ir no path "/api/v1/category" e passar como parametro o id da categoria da qual deseja listar os produtos.
+Listar produtos por categoria ir no path "/api/v1/product/category" e passar como parametro o id da categoria da qual deseja listar os produtos.
 
 Ex:
-/api/v1/category?id=1
+/api/v1/product/category?id=1
 
 Listar produtos por fornecedor ir no path "l/api/v1/product/provider" e passar como parametro o id do fornecedor do qual
 deseja listar os produtos. 
@@ -53,5 +63,3 @@ Ex:
 api/v1/product/provider?id=1
 
 Para listar os produtos com desconto superior a 30% ir no path api/v1/product/discount
-
-

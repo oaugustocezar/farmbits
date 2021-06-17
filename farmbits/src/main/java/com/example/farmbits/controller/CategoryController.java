@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/category")
+@RequestMapping("/api/v1/category")
 public class CategoryController {
 
     @Autowired
@@ -32,9 +32,14 @@ public class CategoryController {
     }
 
     @GetMapping
-    ResponseEntity <Object> find(@RequestParam Long id){
-        Optional<Category> categories =  categoryRepository.findById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(categories);
+    ResponseEntity <Object> find(){
+        try{
+            Iterable<Category> categories =  categoryRepository.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(categories);
+        }catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
+
     }
     @PutMapping
     ResponseEntity<Object> updateCategory(@RequestParam Long id, @RequestBody Category category){
@@ -46,7 +51,6 @@ public class CategoryController {
         }catch (Exception e){
             throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         }
-
 
     }
 }

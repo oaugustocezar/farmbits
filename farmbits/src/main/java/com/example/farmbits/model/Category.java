@@ -23,7 +23,5 @@ public class Category implements Serializable {
     private Long id;
     @Column (name ="name")
     private String name;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "category")
-    private List<Product> products;
 
 }

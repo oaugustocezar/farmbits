@@ -59,6 +59,18 @@ ProviderRepository providerRepository;
         }
     }
 
+    @DeleteMapping
+    ResponseEntity<Object> deleteProvider(@RequestParam Long id) throws Exception{
+        try{
+            Optional<Provider> providers = this.providerRepository.findById(id);
+            this.providerRepository.delete(providers.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Deletado");
+        }catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
+
+    }
+
 
 
 
